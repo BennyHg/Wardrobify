@@ -2,13 +2,8 @@
 
 Team:
 
-<<<<<<< HEAD
 * Benny Huang - Hats microservice
 * Yehsun Kang - Shoes microservice
-=======
-* Benny Huang  - Hats
-* Yehsun Kang - Shoes
->>>>>>> main
 
 ## Design
 
@@ -40,12 +35,7 @@ microservice, here.
 
 ## Hats microservice
 
-<<<<<<< HEAD
 I'll probably begin the microservice by first creating the model and encoder that will contain the Hats data.
-Detail model -- Each hat/shoe should have its own fabric, style name, picture_url(pexel), color, location in the wardrobe
+Detail model -- Each hat/shoe should have its own fabric, style name, picture_url, color, location in the wardrobe
 List model -- Hats should have name, picture_url
-=======
-Explain your models and integration with the wardrobe
-microservice, here.
->>>>>>> main
 
