@@ -15,6 +15,7 @@ class BinVOEncoder(ModelEncoder):
         "closet_name",
         "bin_number",
         "bin_size",
+        
     ]
 
 class ShoeEncoder(ModelEncoder):
@@ -43,7 +44,6 @@ def api_list_shoes(request):
         )
     else:
         content = json.loads(request.body)
-        print(BinVO.objects.all())
         try:
             bin = BinVO.objects.get(id=content["bin"])
             content["bin"] = bin

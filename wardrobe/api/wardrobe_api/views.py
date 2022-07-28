@@ -23,6 +23,8 @@ class BinEncoder(ModelEncoder):
         "closet_name",
         "bin_number",
         "bin_size",
+        
+
     ]
 
 
