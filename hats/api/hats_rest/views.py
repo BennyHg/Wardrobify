@@ -12,15 +12,9 @@ class LocationVOEncoder(ModelEncoder):
         "closet_name",
         "section_number",
         "shelf_number",
+        "import_href",
     ]
 
-class HatListEncoder(ModelEncoder):
-    model = Hat
-    properties = [
-        "name",
-        "style",
-        "id",
-    ]
 
 class HatDetailEncoder(ModelEncoder):
     model = Hat
@@ -43,7 +37,7 @@ def api_list_hats(request):
         hats = Hat.objects.all()
         return JsonResponse(
             {"hats": hats},
-            encoder=HatListEncoder,
+            encoder=HatDetailEncoder,
         )
     else:
         content = json.loads(request.body)
