@@ -28,7 +28,7 @@ class ModelEncoder(DateEncoder, QuerySetEncoder, JSONEncoder):
             d = {}
             if hasattr(o, "get_api_url"):
                 try:
-                    d["href"] = o.get_api_url()
+                    d["hf"] = o.get_api_url()
                 except NoReverseMatch:
                     pass
             for property in self.properties:

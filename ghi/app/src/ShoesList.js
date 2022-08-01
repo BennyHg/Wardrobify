@@ -15,25 +15,23 @@ async function DeleteShoe(id) {
     }
 }
 
-function ShoeColumn(props) {
+function ShoeCard(props) {
     return (
         <div className="col">
             {props.list.map(data => {
                 const shoe = data;
+                console.log(data)
                 return (
                     <div key={shoe.id} className="card mb-3 shadow">
-                        {/* <img src={shoe.picture} className="card-img-top" /> */}
+                        <img src={shoe.picture} className="card-img-top" />
                         <div className="card-body">
-                            <h5 className="card-title">{shoe.manufacturer} {shoe.model_name} {shoe.model_color} shoe</h5>
+                            <h5 className="card-title">{shoe.manufacturer}</h5>
+                            <h6 className="card-subtitle mb-2 text-muted">{shoe.model} </h6>
                             <p className="card-text">
-                                Located in: {shoe.bin.closet_name} closet on shelf #{shoe.bin.bin_number} in section #{shoe.bin.bin_size}
+                                Located in: {shoe.bin.closet_name} closet  shelf #{shoe.bin.bin_number} in section #{shoe.bin.bin_size}
                             </p>
                             <button type="button" className="btn btn-outline-danger mx-3" onClick={() => DeleteShoe(shoe.id)}>Delete</button>
-                            <button type="button" className="btn btn-outline-primary" onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href = shoe.picture_url;
-                            }}
-                            >See Image</button>
+                            <button type="button" className="btn btn-outline-primary" onClick={(e) => { e.preventDefault(); window.location.href = shoe.picture;}} >See Image</button>                            
                         </div>
                     </div>
                 );
@@ -96,12 +94,12 @@ class ShoesList extends React.Component {
                     <h2>Shoe List</h2>
                 </div>
                 <div className="d-flex justify-content-center pb-4">
-                    <Link to="/shoes/new" className="btn btn-outline-primary d-flex justify-content-center">Create New Shoe!</Link>
+                    <Link to="/shoes/new" className="btn btn-primary btn-lg px-4 gap-3">Create New Shoe!</Link>
                 </div>
                 <div className="row">
                     {this.state.shoeColumns.map((shoeList, index) => {
                         return (
-                            <ShoeColumn key={index} list={shoeList} />
+                            <ShoeCard key={index} list={shoeList} />
                         );
                     })}
                 </div>

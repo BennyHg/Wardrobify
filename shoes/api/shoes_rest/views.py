@@ -15,7 +15,6 @@ class BinVOEncoder(ModelEncoder):
         "closet_name",
         "bin_number",
         "bin_size",
-        
     ]
 
 class ShoeEncoder(ModelEncoder):
@@ -37,6 +36,7 @@ class ShoeEncoder(ModelEncoder):
 def api_list_shoes(request):
     if request.method == "GET":
         shoes = Shoe.objects.all()
+        # print(shoes)
         return JsonResponse(
             {"shoes": shoes}, 
             encoder=ShoeEncoder,
@@ -46,7 +46,10 @@ def api_list_shoes(request):
         content = json.loads(request.body)
         try:
             bin = BinVO.objects.get(id=content["bin"])
+            print(bin)
             content["bin"] = bin
+            print(content)
+            
         except BinVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid Bin id"},
